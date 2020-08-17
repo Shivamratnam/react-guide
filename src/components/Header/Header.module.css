@@ -1,0 +1,13 @@
+nav.Header {
+    background-color: #ccc;
+}
+nav.Header > ul {
+    height: 50px;
+    margin: 0;
+    padding: 0 20px; 
+}
+nav.Header > ul > .LinkItem {
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px 0;
+}

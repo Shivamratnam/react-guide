@@ -1,0 +1,18 @@
+.Homepage {
+    width: 100%;
+}
+.Card {
+    width: 200px;
+    height: 150px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 0 !important;
+    background-color: whitesmoke;
+}
+.Card:hover {
+    box-shadow: 0 2px 3px #ccc;
+}
+.CardContent {
+    margin: 25px 0;
+    color: rgb(240, 146, 4);
+}
