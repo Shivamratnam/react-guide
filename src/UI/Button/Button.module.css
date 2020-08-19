@@ -1,0 +1,60 @@
+.Button {
+    cursor: pointer;
+    padding: 5px;
+    margin: 10px;
+    min-width: 80px;
+    border: none;
+    background-color: transparent;
+}
+.Button:focus {
+    outline: none;
+}
+/* Primary Button */
+.PrimaryBtn {
+    color: blue;
+    border: 1px solid blue;
+}
+.PrimaryBtn:hover {
+    color: white;
+    background-color: blue;
+}
+/* Secondary Button */
+.SecondaryBtn {
+    color: hotpink;
+    border: 1px solid hotpink;
+}
+.SecondaryBtn:hover {
+    color: white;
+    background-color: hotpink;
+}
+/* Warning Button */
+.WarningBtn {
+    color: orange;
+    border: 1px solid orange;
+}
+.WarningBtn:hover {
+    color: white;
+    background-color: orange;
+}
+/* Danger Button */
+.DangerBtn {
+    color: Red;
+    border: 1px solid red;
+}
+.DangerBtn:hover {
+    color: white;
+    background-color: red;
+}
+/* Success Button */
+.SuccessBtn {
+    color: green;
+    border: 1px solid green;
+}
+.SuccessBtn:hover {
+    color: white;
+    background-color: green;
+}
+/* Default Button */
+.DefaultBtn {
+    color: black;
+}
