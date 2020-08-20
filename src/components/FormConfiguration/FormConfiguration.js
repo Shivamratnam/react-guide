@@ -43,7 +43,7 @@ const FormConfiguration = props => {
                         label="Enter Placeholder Text"
                         onInput={(event) => { setSelectedField({...selectedField, label: event.target.value}) }} />
                 </div>
-                <Button type="success">Add Element</Button>
+                <Button color="primary">Add Element</Button>
             </form>
         </div>
     );

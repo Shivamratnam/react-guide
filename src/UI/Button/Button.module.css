@@ -57,4 +57,10 @@
 /* Default Button */
 .DefaultBtn {
     color: black;
+    border: 1px solid black;
+}
+.DefaultBtn:hover {
+    color: black;
+    border: 1px solid lightgray;
+    background-color: lightgray;
 }

@@ -3,14 +3,15 @@ import React, { Component } from 'react';
 import FormTemplate from '../../components/FormTemplate/FormTemplate';
 import FormConfiguration from '../../components/FormConfiguration/FormConfiguration';
 
+import Alert from '@material-ui/lab/Alert';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/CloseRounded';
+
 class FormGenerator extends Component {
     state = {
-        template:{
-            formFields: []
-        },
-        config: {
-
-        }
+        showSnackbar: false,
+        formFields: []
     }
     
     generateId = () => '_' + Math.random().toString(36).substr(2, 9);
@@ -22,23 +23,48 @@ class FormGenerator extends Component {
             placeholder: field.label,
             value: ''
         }
-        const newTemplate = {
-            formFields: this.state.template.formFields.concat(formField)
-        };
-        this.setState({template: newTemplate});
+        const newformFields = this.state.formFields.concat(formField);
+        this.setState({formFields: newformFields});
     }
     onSubmitHandler = (event) => {
         event.preventDefault();
-        console.log(event);
+        console.log('FORM DATA: ', this.state.formFields);
+        this.setState({showSnackbar: true});
     }
     onChangeHandler = (element, value) => {
-        console.log(element, value);
+        const updatedFormFields = [...this.state.formFields];
+        for (let field of updatedFormFields) {
+            if (field.id === element.id) {
+                field.value = value;
+                break;
+            }
+        }
+        this.setState({formFields: updatedFormFields})
     }
+
+    onCloseSnackbarHandler = () => this.setState({showSnackbar: false});
 
     render() {
         return (
             <div>
-                <FormTemplate fields={this.state.template.formFields}
+                <Snackbar open={this.state.showSnackbar}
+                    anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                    autoHideDuration={10000}
+                    onClose={this.onCloseSnackbarHandler}>
+                        <Alert severity="success" action={
+                            <IconButton
+                                aria-label="close"
+                                color="inherit"
+                                size="small"
+                                onClick={() => this.setState({showSnackbar: false})}
+                            >
+                                <CloseIcon fontSize="inherit" />
+                            </IconButton>
+                        }>
+                            Form submitted successfully. Open console to check the submitted data.
+                        </Alert>
+                </Snackbar>
+                <FormTemplate fields={this.state.formFields}
                     changed={(element, value) => this.onChangeHandler(element, value)}
                     submitted={this.onSubmitHandler} />
                 <FormConfiguration added={(field) => this.onAddElementHandler(field)}/>

@@ -17,9 +17,7 @@ const FormTemplate = props => {
                 <form onSubmit={props.submitted}>
                     {formFields}
                     { props.fields.length > 0
-                        ? <React.Fragment>
-                            <Button type="success">Submit</Button>
-                            <Button type="warning">Reset</Button> </React.Fragment>
+                        ? <Button color="success">Submit</Button>
                         : null
                     }
                 </form>
